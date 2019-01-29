@@ -28,3 +28,5 @@ Route::post('/my-update/{id}', 'HomeController@updateRegistration')->name('my-up
 
 Route::delete('/my-delete/{id}', 'HomeController@deleteRegistration')->name('my-delete');
 
+Route::get('/ajaxdata', 'AjaxdataController@index')->name('ajaxdata');
+Route::get('/ajaxdata/getdata', 'AjaxdataController@getdata')->name('ajaxdata.getdata');

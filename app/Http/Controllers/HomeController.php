@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
+use Datatables;
+
 class HomeController extends Controller
 {
     /**
@@ -161,4 +163,20 @@ class HomeController extends Controller
 //        return view('my/delete');
     }
 
+
+//    public function anyData(Request $request)
+//    {
+//        $user = User::select('name','age','dob','gender','email','mobileNumber','address','city','pinCode','cityState','fileName');
+//
+//
+//        return Datatables::of($user)
+//            ->filterColumn('user_id', function($query, $keyword) {
+//                $query->whereRaw("CONCAT(users.id,'-',users.id) like ?", ["%{$keyword}%"]);
+//            })
+//            ->make(true);
+//
+//        return Datatables::of(User::query())->make(true);
+//
+//
+//    }
 }

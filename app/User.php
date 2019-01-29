@@ -20,6 +20,10 @@ class User extends Authenticatable
     ];
 
 
+    public function getUsername()
+    {
+        return $this->name;
+    }
 
     /**
      * The attributes that should be hidden for arrays.
