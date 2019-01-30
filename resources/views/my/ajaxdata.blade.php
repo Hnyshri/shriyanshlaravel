@@ -25,7 +25,6 @@
                                 </tr>
                             </thead>
                         </table>
-
                         <div class="form-group">
                             <div class="col-md-12 col-md-offset-4">
                                 <a type="submit" class="btn btn-success" id="displayRegistration" href="{{ route('home') }}">Home</a>
@@ -58,6 +57,10 @@
                 ]
             });
         });
+
+
     </script>
+
+
 </div>
 @endsection
