@@ -44,6 +44,7 @@ class CreateAddColum extends Migration
             $table->dropColumn('pinCode');
             $table->dropColumn('cityState');
             $table->dropColumn('fileName');
+            $table->dropColumn('deleted_at');
         });
     }
 }

@@ -188,6 +188,63 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
+                            <label for="post_title" class="col-md-4 control-label">Post Title</label>
+
+                            <div class="col-md-6">
+                                <input id="post_title" type="text" class="form-control" name="post_title" value="{{ old('post_title') }}" autofocus>
+
+                                @if ($errors->has('post_title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('post_title') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('post_details') ? ' has-error' : '' }}">
+                            <label for="post_details" class="col-md-4 control-label">Post Detail</label>
+
+                            <div class="col-md-6">
+                                <input id="post_details" type="text" class="form-control" name="post_details" value="{{ old('post_details') }}" autofocus>
+
+                                @if ($errors->has('post_details'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('post_details') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('comment_title') ? ' has-error' : '' }}">
+                            <label for="comment_title" class="col-md-4 control-label">Comment Title</label>
+
+                            <div class="col-md-6">
+                                <input id="comment_title" type="text" class="form-control" name="comment_title" value="{{ old('comment_title') }}" autofocus>
+
+                                @if ($errors->has('comment_title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('comment_title') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('comment_details') ? ' has-error' : '' }}">
+                            <label for="comment_details" class="col-md-4 control-label">Comment</label>
+
+                            <div class="col-md-6">
+                                <input id="comment_details" type="text" class="form-control" name="comment_details" value="{{ old('comment_details') }}" autofocus>
+
+                                @if ($errors->has('comment_details'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('comment_details') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary" id="submitRegistration">Register</button>

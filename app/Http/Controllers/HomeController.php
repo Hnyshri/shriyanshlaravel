@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -92,7 +94,21 @@ class HomeController extends Controller
         $user->filename=$path;
 
         $user->password = Hash::make(Input::get('password'));
+
         $user->save();
+
+        $post = new Post();
+        $post->users_id = $user->id;
+        $post->post_title = Input::get('post_title');
+        $post->post_details = Input::get('post_details');
+        $post->save();
+
+
+        $comment = new Comment();
+        $comment->users_id = $user->id;
+        $comment->comment_title = Input::get('comment_title');
+        $comment->comment_details = Input::get('comment_details');
+        $comment->save();
 
         return Redirect::back();
 
@@ -101,12 +117,15 @@ class HomeController extends Controller
     public function  displayRegistration(){
 
         $user=User::all();
+//        $post= Post::all();
+//        $comment= Comment::all();
 //        print_r($user);exit;
         return view('my/display',compact('user'));
 
 }
 
     public function editRegistration($id){
+
         $user = User::find($id);
         return view('my/edit',compact('user'));
 //        return view('my/edit');
@@ -157,8 +176,13 @@ class HomeController extends Controller
     }
 
 
-    public function deleteRegistration($id){
-        $user= User::find($id)->delete();
+    public function deleteRegistration($id)
+    {
+        $user = User::find($id);
+        $user->posts()->delete();
+        $user->comments()->delete();
+        $user->delete();
+
         return redirect()->back()->withErrors('Successfully deleted!');
 //        return view('my/delete');
     }

@@ -17,8 +17,7 @@ class AjaxdataController extends Controller
 
     public function getdata()
     {
-
-        $users = User::select(['id', 'name','age','dob','gender','email','mobileNumber','address','city','pinCode','cityState']);
+        $users = User::select(['id', 'name', 'age', 'dob', 'gender', 'email', 'mobileNumber', 'address', 'city', 'pinCode', 'cityState']);
         return Datatables::of($users)->make(true);
 
 //            $model = User::query();

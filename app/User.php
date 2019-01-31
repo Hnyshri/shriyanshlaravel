@@ -16,10 +16,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','age','dob','gender','email','mobileNumber','address','city','pinCode','cityState','fileName','password',
+        'name', 'age', 'dob', 'gender', 'email', 'mobileNumber', 'address', 'city', 'pinCode', 'cityState', 'fileName', 'password',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'users_id');
+    }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'users_id');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
