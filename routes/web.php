@@ -32,3 +32,8 @@ Route::get('/ajaxdata', 'AjaxdataController@index')->name('ajaxdata');
 Route::get('/ajaxdata/getdata', 'AjaxdataController@getdata')->name('ajaxdata.getdata');
 
 
+Route::get('/my-fromMail', 'HomeController@fromMail')->name('fromMail');
+Route::post('/my-mailContact', 'HomeController@mailContact')->name('mailContact');
+
+Route::get('/my-map', 'HomeController@mapGoogle')->name('mapGoogle');
+

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -121,7 +122,6 @@ class HomeController extends Controller
 //        $comment= Comment::all();
 //        print_r($user);exit;
         return view('my/display',compact('user'));
-
 }
 
     public function editRegistration($id){
@@ -203,4 +203,33 @@ class HomeController extends Controller
 //
 //
 //    }
+
+
+    public function fromMail(Request $request){
+        return view('my.fromMail');
+    }
+
+
+    public function mailContact(Request $request){
+
+        try{
+
+            $form['data'] = $request;
+            Mail::send('my.mailContact',$form,function($message) use ($form){
+                $message->to('shriyansh@rvtechnologies.com');
+
+            });
+
+        }catch (\Exception $e){
+
+            dd($e->getMessage());
+        }
+
+
+    }
+
+    public function mapGoogle(Request $request){
+        return view('my.mapgoogle');
+    }
+
 }

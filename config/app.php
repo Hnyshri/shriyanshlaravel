@@ -181,6 +181,8 @@ return [
 //        Yajra\Datatables\Facades\Datatables::class,
         Yajra\Datatables\HtmlServiceProvider::class,
 
+
+
     ],
 
     /*
